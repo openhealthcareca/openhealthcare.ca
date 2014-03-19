@@ -8,4 +8,6 @@ all:
 install:
 	go get github.com/codegangsta/martini
 	go get github.com/codegangsta/gin
+	go get github.com/martini-contrib/gzip
+	go get github.com/martini-contrib/render
 

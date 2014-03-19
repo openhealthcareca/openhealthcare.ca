@@ -1,0 +1,39 @@
+<div class="landing header">
+	<div class="row">
+		<div class="small-12 small-centered columns">
+			<h1>It's a big world out there.</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 small-centered columns">
+			<h1>We better get started.</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-10 small-centered columns">
+		<button class="large">Join the Discussion!</button>
+		</div>
+	</div>
+</div>
+
+<div class="row landing">
+	<div class="small-4 columns feed">
+		<h3>News</h3>
+	</div>
+	<div class="small-4 columns feed">
+		<h3>Discussions</h3>
+		<ul>
+			{{ range $index, $element := . }}
+			<li>
+				<small class="muted">{{ $index }}. </small> <a href="#">{{ . }}</a><br >
+				<small class="muted">&nbsp;20 points by <a href="#">jesse</a> | 30 comments</small>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
+	<div class="small-4 columns feed">
+		<h3>Projects</h3>
+	</div>
+
+</div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Open Healthcare Canada</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/css/foundation.min.css" />
+	<link rel="stylesheet" href="/css/normalize.css" />
+	<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+<div class="top">
+	<div class="row nav">
+		<div class="small-12 columns">
+			<nav class="top-bar" data-topbar>
+				<ul class="title-area">
+					<li class="name">
+						<h1><a href="">Open Healthcare</a></h1>
+					</li>
+				</ul>
+				<section class="top-bar-section">
+					<ul>
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/news">News</a></li>
+						<li><a href="/talk">Discussion</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</div>
+</div>
+
+
+	{{ yield }}
+
+	<footer>
+		<div class="row">
+			<div class="small-12 columns">
+				<p>Openhealthcare.ca -- 2014</p>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="/js/vendor/jquery.js"></script>
+	<script type="text/javascript" src="/js/foundation.min.js"></script>
+</body>
+</html>
