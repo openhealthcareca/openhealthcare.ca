@@ -6,6 +6,9 @@ import (
 
 type Routes struct {}
 
+func (routes Routes) response(r render.Render) {
+	
+}
 
 func (routes Routes) landing(r render.Render) {
 	d := []string{"Where in the world is Carmen San Diego?", "What the hell is derp?"}
