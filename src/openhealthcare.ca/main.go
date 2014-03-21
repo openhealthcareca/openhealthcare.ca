@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/codegangsta/martini"
 	"github.com/martini-contrib/gzip"
-	"github.com/codegangsta/martini-contrib/render"
+	"github.com/martini-contrib/render"
 )
 
 func main() {
@@ -18,6 +18,7 @@ func main() {
 	r := Routes{}
 
 	server.Get("/", r.landing)
+	server.Get("/talk", r.discussionIndex)
 
 	server.Run()
 }

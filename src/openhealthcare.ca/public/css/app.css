@@ -1,5 +1,6 @@
 body { background: #ececec; }
 body, h1,h2,h3,h4,h5,h6,p,a { font-family: "Open Sans", sans-serif; }
+.content { padding-top: 70px; }
 
 .muted { color: #a5a5a5; }
 .hide { display: none; }
