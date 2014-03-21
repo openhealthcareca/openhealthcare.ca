@@ -1,4 +1,5 @@
 SHELL := /bin/bash
+GOPATH := $(shell pwd)
 
 all:
 	@echo "Openhealthcare installation."
@@ -6,8 +7,5 @@ all:
 	@echo "Install     - Install all dependencies"
 
 install:
-	go get github.com/codegangsta/martini
-	go get github.com/codegangsta/gin
-	go get github.com/martini-contrib/gzip
-	go get github.com/martini-contrib/render
+	cd $(GOPATH)/src/openhealthcare.ca && go get
 
