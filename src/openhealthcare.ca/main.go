@@ -19,6 +19,7 @@ func main() {
 
 	server.Get("/", r.landing)
 	server.Get("/talk", r.discussionIndex)
+	server.Get("/roadmap", r.roadmap)
 
 	server.Run()
 }

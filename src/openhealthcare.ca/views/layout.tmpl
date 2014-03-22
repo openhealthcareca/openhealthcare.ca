@@ -20,25 +20,12 @@
 					</li>
 				</ul>
 				<section class="top-bar-section">
-					<ul>
-											</ul>
-				</section>
-				<section class="top-bar-section">
 					<ul class="right">
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="/news">News</a></li>
-						<li><a href="/talk">Discussion</a></li>
-						<li><a href="/code">Code</a></li>
-						<li class="has-form">
-							<div class="row collapse">
-								<div class="large-8 small-9 columns hide">
-									<input type="text" class="hide" placeholder="Search" name="searchterms" id="searchbox" />
-								</div>
-								<div class="large-4 small-3 columns">
-									<a href="#" class="button"><i class="fa fa-search fa-lg"></i></a>
-								</div>
-							</div>
-						</li>
+						<li {{if eq "home" .MenuItem}} class="active" {{end}}><a href="/">Home</a></li>
+						<li {{if eq "news" .MenuItem}} class="active" {{end}}><a href="/news">News</a></li>
+						<li {{if eq "talk" .MenuItem}} class="active" {{end}}><a href="/talk">Discussion</a></li>
+						<li {{if eq "road" .MenuItem}} class="active" {{end}}><a href="/roadmap">Roadmap</a></li>
+						<li {{if eq "code" .MenuItem}} class="active" {{end}}><a href="/code">Code</a></li>
 					</ul>
 				</section>
 			</nav>

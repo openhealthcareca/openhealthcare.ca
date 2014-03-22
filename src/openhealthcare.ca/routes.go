@@ -2,28 +2,37 @@ package main
 
 import (
 	"github.com/martini-contrib/render"
-	"time"
+	"net/http"
+	_ "time"
 )
 
 type Routes struct {
 }
 
-func (routes Routes) response(r render.Render) {
-	
-}
-
-func (routes Routes) landing(r render.Render) {
-	d := []string{"Where in the world is Carmen San Diego?", "What the hell is derp?"}
-	r.HTML(200, "landing", d)
-}
-
-func (routes Routes) discussionIndex(r render.Render) {
+func (routes Routes) landing(renderer render.Render, r *http.Request) {
 	data := struct {
-		CurrentUrl string
-		CurrentDate string 
+		MenuItem string
 	} {
-		"/talk",
-		time.Now().Format("Jan 2, 2006 at 3:03pm (EST)"),
+		"home",
 	}
-	r.HTML(200, "discussions/index", data)
+	renderer.HTML(200, "landing", data)
+}
+
+func (routes Routes) discussionIndex(renderer render.Render, r *http.Request) {
+	data := struct {
+		MenuItem string
+	}{
+		"talk",
+	}
+	renderer.HTML(200, "discussions/index", data)
+}
+
+func (route Routes) roadmap(renderer render.Render, r *http.Request) {
+	data := struct {
+		MenuItem string
+	}{
+		"road",
+	}
+
+	renderer.HTML(200, "roadmap", data)
 }
