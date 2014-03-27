@@ -67,11 +67,18 @@ ul.nav li { float: left; }
 .discussion-bar ul li a { padding: 3px 20px; }
 .discussion-bar ul li a:hover { border-bottom: 3px solid #ccc; }
 
-.topic { background: white; padding: 10px; box-shadow: 0px 1px 2px rgba(0,0,0,0.2); }
-.topic div.up { position: absolute; top: 0; left: 0; margin: 0; }
-.topic div.up h4 { font-weight: bold; padding-right: 0.5em; border-right: 1px solid #ddd; }
-.topic div.up h4 a:hover { color: #535353;}
-.topic .content { margin-left: 30px; }
+.topic-body { position: relative; }
+.topic { background: white; margin-top: 1em;  box-shadow: 0px 1px 2px rgba(0,0,0,0.2); border-radius: 5px; }
+.topic div.number { position: absolute; margin-left: -60px; }
+.topic div.up { position: absolute; top: 0; left: 0; margin: 0; height: 100%;border-right: 1px solid #ddd; }
+.topic div.up a { display: table; width: 30px; float: left; height: 100%; color: #535353; border-radius: 5px 0px 0px 5px; }
+.topic div.up a i { display: table-cell; height: 100%; width: 100%; text-align: center; vertical-align: middle; }
+.topic div.up a:hover { background: #0B4C44; color: white; }
+.topic div.topic-content { margin-left: 30px; padding: 13px; }
+.topic div.topic-content h4 { margin: 0; }
+.topic div.topic-content p.muted { margin-bottom: 0; }
+.topic div.topic-content ul.nav { position: absolute; top: 5px; right: 5px; }
+.topic div.topic-content ul.nav li { margin-left: 15px; }
 
 .roadmap {  }
 

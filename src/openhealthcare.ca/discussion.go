@@ -23,10 +23,12 @@ func (d Discussion) index(ren render.Render, req *http.Request) {
 		Request *http.Request
 		MenuItem string
 		ActiveFilter string
+		TestRange []int
 	} {
 		req,
 		"talk",
 		filter,
+		[]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
 	}
 
 	ren.HTML(200, "discussions/index", data)
