@@ -16,9 +16,10 @@ func main() {
 	}))
 	
 	r := Routes{}
+	d := Discussion{}
 
 	server.Get("/", r.landing)
-	server.Get("/talk", r.discussionIndex)
+	server.Get("/talk", d.index)
 	server.Get("/roadmap", r.roadmap)
 
 	server.Run()

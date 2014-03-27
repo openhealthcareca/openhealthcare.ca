@@ -18,15 +18,6 @@ func (routes Routes) landing(renderer render.Render, r *http.Request) {
 	renderer.HTML(200, "landing", data)
 }
 
-func (routes Routes) discussionIndex(renderer render.Render, r *http.Request) {
-	data := struct {
-		MenuItem string
-	}{
-		"talk",
-	}
-	renderer.HTML(200, "discussions/index", data)
-}
-
 func (route Routes) roadmap(renderer render.Render, r *http.Request) {
 	data := struct {
 		MenuItem string

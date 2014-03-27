@@ -1,9 +1,13 @@
 body { background: #ececec; }
 body, h1,h2,h3,h4,h5,h6,p,a { font-family: "Open Sans", sans-serif; }
-.content { padding-top: 70px; }
 
+/** Misc Stuff **/
+.content { padding-top: 70px; }
 .muted { color: #a5a5a5; }
 .hide { display: none; }
+ul.nav { list-style-type: none; padding: 0; margin: 0;}
+ul.nav li { float: left; }
+
 .top { width: 100%; height: 70px; background: #0B4C44; position: fixed; z-index: 1; }
 .top-bar { height: 70px; background: #0B4C44;  }
 .top-bar .top-bar-section ul { background: transparent; }
@@ -36,7 +40,6 @@ body, h1,h2,h3,h4,h5,h6,p,a { font-family: "Open Sans", sans-serif; }
 	border-bottom: 5px solid;
 }
 
-
 .top-bar li.name h1 a { 
 	font-size: 1.75em; 
 	margin-top: 9px; 
@@ -57,6 +60,18 @@ body, h1,h2,h3,h4,h5,h6,p,a { font-family: "Open Sans", sans-serif; }
 	.landing.header button { float: right; color: white; }
 .landing .feed h2, .landing .feed h3 { text-align: center; margin-bottom: 1em; }
 .landing .feed ul { list-style-type: none; }
+
+.discussion-bar { margin-top: 1em; margin-bottom: 1em; }
+.discussion-bar ul li.active a { border-bottom: 3px solid #3498db; }
+.discussion-bar ul li { padding: 0px 2px;}
+.discussion-bar ul li a { padding: 3px 20px; }
+.discussion-bar ul li a:hover { border-bottom: 3px solid #ccc; }
+
+.topic { background: white; padding: 10px; box-shadow: 0px 1px 2px rgba(0,0,0,0.2); }
+.topic div.up { position: absolute; top: 0; left: 0; margin: 0; }
+.topic div.up h4 { font-weight: bold; padding-right: 0.5em; border-right: 1px solid #ddd; }
+.topic div.up h4 a:hover { color: #535353;}
+.topic .content { margin-left: 30px; }
 
 .roadmap {  }
 
