@@ -22,7 +22,7 @@ func (d Discussion) index(ren render.Render, req *http.Request) {
 	data := struct {
 		Request *http.Request
 		MenuItem string
-		ActiveFilter string
+		SubMenuItem string
 		TestRange []int
 	} {
 		req,
@@ -32,6 +32,20 @@ func (d Discussion) index(ren render.Render, req *http.Request) {
 	}
 
 	ren.HTML(200, "discussions/index", data)
+}
+
+func (d Discussion) create(ren render.Render, req *http.Request) {
+	data := struct {
+		Request *http.Request
+		MenuItem string
+		SubMenuItem string
+	} {
+		req,
+		"talk",
+		"submit",
+	}
+	
+	ren.HTML(200, "discussions/submit", data)
 }
 
 func (d Discussion) store(ren render.Render, req *http.Request) {

@@ -1,19 +1,19 @@
 <div class="row">
 	<div class="small-7 small-centered columns discussion-bar">
 		<ul class="bar nav">
-			<li {{if eq .ActiveFilter "all" "" }} class="active" {{end}}>
+			<li {{if eq .SubMenuItem "all" "" }} class="active" {{end}}>
 				<a href="/talk">all</a>
 			</li>
-			<li {{if eq .ActiveFilter "trending" }} class="active" {{end}}>
+			<li {{if eq .SubMenuItem "trending" }} class="active" {{end}}>
 				<a href="/talk?filter=trending">trending</a>
 			</li>
-			<li {{if eq .ActiveFilter "new" }} class="active" {{end}}>
+			<li {{if eq .SubMenuItem "new" }} class="active" {{end}}>
 				<a href="/talk?filter=new">new</a>
 			</li>
-			<li {{if eq .ActiveFilter "mine" }} class="active" {{end}}>
+			<li {{if eq .SubMenuItem "mine" }} class="active" {{end}}>
 				<a href="/talk?filter=mine">my threads</a>
 			</li>
-			<li {{if eq .ActiveFilter "submit" }} class="active" {{end}}>
+			<li {{if eq .SubMenuItem "submit" }} class="active" {{end}}>
 				<a href="/talk/store">submit</a>
 			</li>
 		</ul>
