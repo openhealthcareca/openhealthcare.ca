@@ -1,0 +1,43 @@
+{{ template "discussions/nav" . }}
+
+<div class="row">
+	<div class="small-8 columns small-centered">
+		<p class="muted centered">Start a new discussion. Share a link to an article, or write your own hook.</p>
+		<form action="/discussions/store">
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="title">Title</label>
+				</div>
+				<div class="small-9 columns">
+					<input id="title" type="text" name="title" />
+				</div>	
+			</div>
+			<br />
+			<br />
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="url">URL</label>
+				</div>
+				<div class="small-9 columns">
+					<input id="url" type="text" name="url" />
+					<small class="muted">Leave the URL blank to create your own discussion.</small>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns"></div>
+				<div class="small-9 columns"><br /><strong>OR</strong></div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="post">Post</label>
+				</div>
+				<div class="small-9 columns">
+					<textarea id="post" rows="5" name="post"></textarea>
+					<small class="muted">Ask a question or post your thoughts. If there is a URL, the text here is ignored.</small>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>

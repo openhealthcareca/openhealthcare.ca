@@ -6,6 +6,7 @@ body, h1,h2,h3,h4,h5,h6,p,a { font-family: "Open Sans", sans-serif; }
 /** Misc Stuff **/
 .content { padding-top: 70px; }
 .muted { color: #a5a5a5; }
+.centered { text-align: center; }
 .hide { display: none; }
 ul.nav { list-style-type: none; padding: 0; margin: 0;}
 ul.nav li { float: left; }
@@ -66,13 +67,13 @@ ul.nav li { float: left; }
 .landing .feed h2, .landing .feed h3 { text-align: center; margin-bottom: 1em; }
 .landing .feed ul { list-style-type: none; }
 
-.discussion-bar { margin-top: 2em; }
+.discussion-bar { margin-top: 2em; margin-bottom: 2em; }
 .discussion-bar ul li.active a { color: #7D5A7B; border-bottom: 3px solid #8c8c8c; }
 .discussion-bar ul li { padding: 0px 2px;}
 .discussion-bar ul li a { color: #7D5A7B; padding: 3px 20px; }
 .discussion-bar ul li a:hover { border-bottom: 3px solid #ccc; }
 
-.topics { border: 0; width: 100%; margin-top: 2em; }
+.topics { border: 0; width: 100%; }
 .topics tr th { color: #8c8c8c; }
 .topics td.vote, .topics td.number { text-align: center; padding:0; }
 .topics td.number { font-size: 1.5em; }

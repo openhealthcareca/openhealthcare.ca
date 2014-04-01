@@ -1,20 +1,20 @@
-<div class="row">
-	<div class="small-7 small-centered columns discussion-bar">
+<div class="row discussion-bar">
+	<div class="small-7 small-centered columns">
 		<ul class="bar nav">
 			<li {{if eq .SubMenuItem "all" "" }} class="active" {{end}}>
-				<a href="/talk">all</a>
+				<a href="/discuss">all</a>
 			</li>
 			<li {{if eq .SubMenuItem "trending" }} class="active" {{end}}>
-				<a href="/talk?filter=trending">trending</a>
+				<a href="/discuss?filter=trending">trending</a>
 			</li>
 			<li {{if eq .SubMenuItem "new" }} class="active" {{end}}>
-				<a href="/talk?filter=new">new</a>
+				<a href="/discuss?filter=new">new</a>
 			</li>
 			<li {{if eq .SubMenuItem "mine" }} class="active" {{end}}>
-				<a href="/talk?filter=mine">my threads</a>
+				<a href="/discuss?filter=mine">my threads</a>
 			</li>
 			<li {{if eq .SubMenuItem "submit" }} class="active" {{end}}>
-				<a href="/talk/store">submit</a>
+				<a href="/discuss/submit">submit</a>
 			</li>
 		</ul>
 	</div>

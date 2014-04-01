@@ -6,8 +6,7 @@ import (
 	_ "time"
 )
 
-type Routes struct {
-}
+type Routes struct {}
 
 func (routes Routes) landing(renderer render.Render, r *http.Request) {
 	data := struct {

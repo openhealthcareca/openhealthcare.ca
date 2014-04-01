@@ -6,9 +6,9 @@ import (
 	 _ "time"
 )
 
-type Discussion struct {}
+type Discussions struct {}
 
-func (d Discussion) index(ren render.Render, req *http.Request) {
+func (d Discussions) index(ren render.Render, req *http.Request) {
 	// If the request is to 
 	filter := req.URL.Query().Get("filter")
 	if "all" == filter {
@@ -26,7 +26,7 @@ func (d Discussion) index(ren render.Render, req *http.Request) {
 		TestRange []int
 	} {
 		req,
-		"talk",
+		"discuss",
 		filter,
 		[]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
 	}
@@ -34,20 +34,29 @@ func (d Discussion) index(ren render.Render, req *http.Request) {
 	ren.HTML(200, "discussions/index", data)
 }
 
-func (d Discussion) create(ren render.Render, req *http.Request) {
+func (d Discussions) create(ren render.Render, req *http.Request) {
 	data := struct {
 		Request *http.Request
 		MenuItem string
 		SubMenuItem string
 	} {
 		req,
-		"talk",
+		"discuss",
 		"submit",
 	}
 	
-	ren.HTML(200, "discussions/submit", data)
+	ren.HTML(200, "discussions/create", data)
 }
 
-func (d Discussion) store(ren render.Render, req *http.Request) {
+func (d Discussions) store(ren render.Render, req *http.Request) {
 
 }
+
+func (d Discussions) show(ren render.Render, req *http.Request) {
+	
+}
+
+func (d Discussions) update(ren render.Render, req *http.Request) {
+	
+}
+

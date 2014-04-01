@@ -16,11 +16,21 @@ func main() {
 	}))
 	
 	r := Routes{}
-	d := Discussion{}
+	d := Discussions{}
 
 	server.Get("/", r.landing)
-	server.Get("/talk", d.index)
+
+	server.Get("/discuss", d.index)
+	server.Get("/discuss/submit", d.create)
+	server.Get("/discuss/:id", d.show)
+	server.Post("/discuss/store", d.store)
+	server.Put("/discuss/:id", d.update)
+
 	server.Get("/roadmap", r.roadmap)
+
+	server.NotFound(func(ren render.Render) {
+		ren.HTML(404, "errors/404", nil)
+	})
 
 	server.Run()
 }
