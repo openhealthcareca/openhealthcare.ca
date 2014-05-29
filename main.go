@@ -12,11 +12,11 @@ func main() {
 
 	server.Use(render.Renderer(render.Options{
 		Directory: "views",
-		Layout: "layout",
+		Layout:    "layout",
 	}))
-	
+
 	r := Routes{}
-	d := Discussions{}
+	d := DiscussionHandlers{}
 
 	server.Get("/", r.landing)
 
@@ -28,8 +28,8 @@ func main() {
 
 	server.Get("/roadmap", r.roadmap)
 
-	server.NotFound(func(ren render.Render) {
-		ren.HTML(404, "errors/404", nil)
+	server.NotFound(func(r render.Render) {
+		r.HTML(404, "errors/404", nil)
 	})
 
 	server.Run()
