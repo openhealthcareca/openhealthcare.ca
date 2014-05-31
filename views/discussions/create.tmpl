@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="small-8 columns small-centered">
 		<p class="muted centered">Start a new discussion. Share a link to an article, or write your own hook.</p>
-		<form action="/discussions/store">
+		<form method="POST" action="/discussions/store">
 			<div class="row">
 				<div class="small-3 columns">
 					<label for="title">Title</label>
@@ -33,11 +33,14 @@
 					<label for="post">Post</label>
 				</div>
 				<div class="small-9 columns">
-					<textarea id="post" rows="5" name="post"></textarea>
+					<textarea id="text" rows="5" name="text"></textarea>
 					<small class="muted">Ask a question or post your thoughts. If there is a URL, the text here is ignored.</small>
 				</div>
 			</div>
-
+			<br>
+			<div class="row">
+				<div class="small-5 columns small-centered"><button class="button" type="submit">Submit</button></div>
+			</div>
 		</form>
 	</div>
 </div>

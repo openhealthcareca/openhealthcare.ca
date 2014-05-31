@@ -2,19 +2,19 @@
 	<div class="small-7 small-centered columns">
 		<ul class="bar nav">
 			<li {{if eq .SubMenuItem "all" "" }} class="active" {{end}}>
-				<a href="/discuss">all</a>
+				<a href="/discussions">all</a>
 			</li>
 			<li {{if eq .SubMenuItem "trending" }} class="active" {{end}}>
-				<a href="/discuss?filter=trending">trending</a>
+				<a href="/discussions?filter=trending">trending</a>
 			</li>
 			<li {{if eq .SubMenuItem "new" }} class="active" {{end}}>
-				<a href="/discuss?filter=new">new</a>
+				<a href="/discussions?filter=new">new</a>
 			</li>
 			<li {{if eq .SubMenuItem "mine" }} class="active" {{end}}>
-				<a href="/discuss?filter=mine">my threads</a>
+				<a href="/discussions?filter=mine">my threads</a>
 			</li>
 			<li {{if eq .SubMenuItem "submit" }} class="active" {{end}}>
-				<a href="/discuss/submit">submit</a>
+				<a href="/discussions/submit">submit</a>
 			</li>
 		</ul>
 	</div>

@@ -20,11 +20,11 @@ func main() {
 
 	server.Get("/", r.landing)
 
-	server.Get("/discuss", d.index)
-	server.Get("/discuss/submit", d.create)
-	server.Get("/discuss/:id", d.show)
-	server.Post("/discuss/store", d.store)
-	server.Put("/discuss/:id", d.update)
+	server.Get("/discussions", d.index)
+	server.Get("/discussions/submit", d.create)
+	server.Get("/discussions/:id", d.show)
+	server.Post("/discussions/store", d.store)
+	server.Put("/discussions/:id", d.update)
 
 	server.Get("/roadmap", r.roadmap)
 

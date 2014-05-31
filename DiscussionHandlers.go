@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/martini-contrib/render"
+	"github.com/mholt/binding"
 	"net/http"
 )
 
@@ -48,8 +49,22 @@ func (d DiscussionHandlers) create(r render.Render, req *http.Request) {
 	r.HTML(200, "discussions/create", data)
 }
 
-func (d DiscussionHandlers) store(r render.Render, req *http.Request) {
+func (d DiscussionHandlers) store(resp http.ResponseWriter, req *http.Request) {
+	discussion := new(Discussion)
+	errs := binding.Bind(req, discussion)
+	if errs.Handle(resp) {
+		return
+	}
 
+	p := discussion.Persist()
+
+	if p != true {
+		return
+	}
+
+	http.Redirect(resp, req, "/discussions", http.StatusFound)
+
+	return
 }
 
 func (d DiscussionHandlers) show(r render.Render, req *http.Request) {
