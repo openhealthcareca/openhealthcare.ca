@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/garyburd/redigo/redis"
+	"log"
 )
 
 type Persistable interface {
@@ -20,4 +21,23 @@ func (r RedisPersistable) getConnection() redis.Conn {
 	}
 
 	return c
+}
+
+func (r RedisPersistable) getNewId(uid string) int {
+	c := r.getConnection()
+
+	defer c.Close()
+
+	_, err := c.Do("INCR", uid)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	id, err := redis.Int(c.Do("GET", uid))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	return id
 }

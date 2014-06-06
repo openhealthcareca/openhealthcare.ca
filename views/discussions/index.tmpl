@@ -10,9 +10,9 @@
 				<th>share</th>
 			</tr>
 
-		{{ range $i := .TestRange }}
+		{{ range $i, $d := .Discussions}}
 			<tr>
-				<td class="number muted">{{ . }}</td>
+				<td class="number muted">{{ $d.URL }}</td>
 				<td class="vote"><a href="#" class="muted"><i class="fa fa-chevron-up"></i></a></td>
 				<td class="topic">
 					<h5><a href="#">Let's Talk: Misuse of public funds</a> <small class="muted">(linky.com)</small></h5>

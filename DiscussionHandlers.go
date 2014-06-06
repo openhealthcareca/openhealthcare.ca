@@ -9,29 +9,30 @@ import (
 type DiscussionHandlers struct{}
 
 func (d DiscussionHandlers) index(r render.Render, req *http.Request) {
-	// If the request is to
-	filter := req.URL.Query().Get("filter")
 
-	if "all" == filter {
-		// Grab all the posts
-	} else if "trending" == filter {
-		// Grab only trending posts
-	} else if "new" == filter {
-		// Grab only new posts
-	}
+	ds := new(Discussions)
 
 	data := struct {
 		Request     *http.Request
 		MenuItem    string
 		SubMenuItem string
-		TestRange   []int
+		Discussions []*Discussion
 	}{
 		req,
 		"discuss",
-		filter,
-		[]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+		"all",
+		ds.retrieveAll(),
 	}
 
+	r.HTML(200, "discussions/index", data)
+}
+
+func (d DiscussionHandlers) trending(r render.Render, req *http.Request) {
+	data := struct {
+		Request *http.Request
+	}{
+		req,
+	}
 	r.HTML(200, "discussions/index", data)
 }
 

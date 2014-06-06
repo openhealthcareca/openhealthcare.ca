@@ -5,15 +5,27 @@ import (
 	"github.com/mholt/binding"
 	"log"
 	"strconv"
-	_ "time"
+	"time"
 )
 
 type Discussion struct {
 	RedisPersistable
-	Id    string
-	Title string
-	URL   string
-	Text  string
+	Id      string
+	Title   string
+	URL     string
+	Text    string
+	Created time.Time
+	Updated time.Time
+
+	key string
+	uid string
+}
+
+func NewDiscussion() *Discussion {
+	return &Discussion{
+		key: "discussions",
+		uid: "discussions:uid",
+	}
 }
 
 func (d *Discussion) FieldMap() binding.FieldMap {
@@ -31,7 +43,7 @@ func (d *Discussion) Persist() bool {
 	defer c.Close()
 
 	if d.Id == "" {
-		d.Id = strconv.Itoa(d.getNewId())
+		d.Id = strconv.Itoa(d.RedisPersistable.getNewId(d.uid))
 		// Add a new discussion to the list of them
 		c.Do("SADD", "discussions", d.Id)
 	}
@@ -41,25 +53,4 @@ func (d *Discussion) Persist() bool {
 	}
 
 	return true
-}
-
-func (d *Discussion) getNewId() int {
-	c := d.getConnection()
-
-	defer c.Close()
-
-	_, err := c.Do("INCR", "discussions:uid")
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	id, err := redis.Int(c.Do("GET", "discussions:uid"))
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return id
-
 }

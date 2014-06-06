@@ -8,27 +8,59 @@ import (
 
 type Discussions struct {
 	RedisPersistable
-	all map[int]Discussion
+	All map[int]Discussion
 }
 
-func (d *Discussions) Retrieve(id int) *Discussion {
+func (ds Discussions) retrieveAll() []*Discussion {
+	c := ds.getConnection()
 
-	c := d.getConnection()
+	defer c.Close()
 
-	if id <= 0 {
-		log.Print("Invalid discussion id")
-	}
-
-	existingDiscussion, err := redis.Values(c.Do("HGETALL", "discussions:"+strconv.Itoa(id)))
+	allDiscussions, err := redis.Values(c.Do("SMEMBERS", "discussions"))
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	discussion := new(Discussion)
-	if err := redis.ScanStruct(existingDiscussion, &discussion); err != nil {
+	discussions := make([]*Discussion, 1)
+
+	dss := []int{}
+
+	if err := redis.ScanSlice(allDiscussions, &dss); err != nil {
 		log.Fatal(err)
 	}
 
-	return discussion
+	for _, id := range dss {
+
+		discussions = append(discussions, ds.retrieveById(id))
+	}
+
+	log.Print(discussions)
+
+	return discussions
+}
+
+func (ds Discussions) retrieveById(id int) *Discussion {
+
+	c := ds.getConnection()
+
+	defer c.Close()
+
+	if id <= 0 {
+		log.Fatal("Cannot retrieve ID" + strconv.Itoa(id))
+	}
+
+	item, err := redis.Values(c.Do("HGETALL", "discussions:"+strconv.Itoa(id)))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	d := new(Discussion)
+
+	if err := redis.ScanStruct(item, d); err != nil {
+		log.Fatal(err)
+	}
+
+	return d
 }
